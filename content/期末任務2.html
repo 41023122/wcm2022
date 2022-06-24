@@ -139,66 +139,99 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">記分板俄羅斯方塊 << <a href='記分板俄羅斯方塊.html'>Previous</a> <a href='w17.html'>Next</a> >> w17<br /><h1>Final</h1>
+    <div id="tipue_search_content">期末任務1 << <a href='期末任務1.html'>Previous</a> <br /><h1>期末任務2</h1>
+<div style="width: 100%; height: 100%;"></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js">
+</script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/41023122/f36fdfcdc8337b144d0f084efc21b2d0/raw/60027498e542ac2a74a748e02ee6f27e797bb162/gistfile1.txt"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
 <p></p>
-<p><span data-contrast="auto"><span>第1週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>創建WCM2022倉儲</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>並且說明如何利用 bat 執行設定 IPv6 網路連線</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第2週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>解釋python程序是如何運作執行的</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第3週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>解釋用 putty wink 視頻添加 ssh </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>準備創建 Python 3.10.2 和 tcc 可攜帶的環境</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>學習建立可攜系統</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第4週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>在 gist 加入能讀取網際檔案的範例程式</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>加入 Brython 程式環境</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第5週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>全校運動會 (休息一天)</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第6週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>清明節放假 </span><span>(休息一天)</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第7週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>安裝配置 nginx</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>建立 Wink 教學影片</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-ccp-props="{}"> </span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第8週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>加入各學員倉儲與網頁連結</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>添加數字線程頁面</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>加入 w8 虛擬主機 Wink 專案檔</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>整理課程主題，並提出下半學期的課程教學要點</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第9週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>在wink影片添加註解並將影片放到個人網站</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第10週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>加入電腦輔助設計室個人虛擬主機 IP 設定</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第11週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>加入 w11_1a 網路對接 </span><span>(更換</span><span>IP)</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第12週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>建立 Virtualbox 虛擬主機及設定伺服器</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第13週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>說明如何在個人動態與靜態網頁中配置 Brython 程式</span><span>環境, </span><span>並啟動執行 Tetris 遊戲</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>說明 Brython 程式各行功能</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span> </span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第14週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>將舊資料中刪除沒有在註冊名單中的成員</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-ccp-props="{}"> </span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第15週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>端午節放假</span><span> (休息一天)</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>繳交製作俄羅斯方塊及加入計分系統作業</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>第16週</span><span>:</span></span><span data-ccp-props="{}"> </span></p>
-<p><span data-contrast="auto"><span>繳交期末報告整理作業</span></span><span data-ccp-props="{}"> </span></p>
-<br />記分板俄羅斯方塊 << <a href='記分板俄羅斯方塊.html'>Previous</a> <a href='w17.html'>Next</a> >> w17</div>
+<!-- 執行與清除按鈕開始 -->
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button></p>
+<p><button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<!-- 執行與清除按鈕結束 -->
+<p></p>
+<!-- 程式執行 ouput 區 -->
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<div></div>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/vZv1uJ7E_0U" title="YouTube video player" width="560"></iframe></p><br />期末任務1 << <a href='期末任務1.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
