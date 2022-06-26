@@ -352,6 +352,10 @@ run()
 <h1>w17</h1>
 <br/><br/><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/IauQcZklyv8" title="YouTube video player" width="560"></iframe></div>
 <div></div>
+<h1>w18-1  影片與心得</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/vZv1uJ7E_0U" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p>心得:多數程式我都參考來的，這個雖然感覺是只有改起始座標和凋落方向，但改了才知道問題一大堆，但我跑去請教同學，他幫我改了很多，很多我是不解，需要查改善。</p>
 <h1>期末任務1</h1>
 <div style="width: 100%; height: 100%;"></div>
 <!-- 導入 brython 程式庫 -->
@@ -435,8 +439,7 @@ run()
 <!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
 <p></p>
 <!-- 執行與清除按鈕開始 -->
-<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button></p>
-<p><button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button><button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
 <!-- 執行與清除按鈕結束 -->
 <p></p>
 <!-- 程式執行 ouput 區 -->
@@ -444,8 +447,12 @@ run()
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
 <div></div>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/vZv1uJ7E_0U" title="YouTube video player" width="560"></iframe></p>
-<h1>期末任務2</h1>
+<h1>w18-2 影片與心得</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/QDqN20NMXzI" title="YouTube video player" width="560"></iframe></p>
+<p></p>
+<p></p>
+<p>心得:自我演算我真看不懂，我是找人求助的，他雖然有跟我介紹，但我基本功不夠，需要加強</p>
+<p>這學期我雖然幾乎沒有聽懂，但一些虛擬主機和wink還真的好用，也算沒有浪費時間。</p><h1>期末任務2</h1>
 <div style="width: 100%; height: 100%;"></div>
 <!-- 導入 brython 程式庫 -->
 <p>
@@ -500,7 +507,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/41023122/f36fdfcdc8337b144d0f084efc21b2d0/raw/60027498e542ac2a74a748e02ee6f27e797bb162/gistfile1.txt"
+        url = "https://gist.githubusercontent.com/41023122/449be2ed42502c904d7b5d655ffe1278/raw/8c7829bd0c1b00a13d2c64fbe6c61a1dadc5f638/gistfile1.txt"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -528,8 +535,7 @@ run()
 <!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
 <p></p>
 <!-- 執行與清除按鈕開始 -->
-<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button></p>
-<p><button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button><button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
 <!-- 執行與清除按鈕結束 -->
 <p></p>
 <!-- 程式執行 ouput 區 -->
@@ -537,4 +543,3 @@ run()
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
 <div></div>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/vZv1uJ7E_0U" title="YouTube video player" width="560"></iframe></p>
